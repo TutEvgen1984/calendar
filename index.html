@@ -227,15 +227,18 @@
         // 2) Нарисуем календарь на текущий год
         createYearCalendar()
 
+        //  3) Активируем кнопки переключения года:
 
-        let prevButton = document.querySelector('#prev');
-        prevButton.addEventListener('click', function () {
-            currYear--;
-            document.querySelector('h1').textContent = currYear;
-            document.querySelector('.container').innerHTML = "";
-            createYearCalendar()
+        //  3.1) Предыдущий год
+        let prevButton = document.querySelector('#prev'); // Подцепились к кнопке
+        prevButton.addEventListener('click', function () { // Слушаем щелчок, при щелчке запускаем функцию
+            currYear--; // Уменьшили переменную выбранного года
+            document.querySelector('h1').textContent = currYear; // Перерисовываем год на кнопке на новый изменённый
+            document.querySelector('.container').innerHTML = ""; // Стираем старый календарь
+            createYearCalendar() // Рисуем новый календарь
         });
 
+        //  3.2) Следующий год
         let nextButton = document.querySelector('#next');
         nextButton.addEventListener('click', function () {
             currYear++;
